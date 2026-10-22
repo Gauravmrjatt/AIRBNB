@@ -1,34 +1,36 @@
 # Airbnb Clone
 
-A full-stack rental booking application — an Express/MongoDB API with JWT auth and Cloudinary image uploads, plus a React (Vite) single-page frontend.
+A rental booking app: an Express and MongoDB API with JWT auth and Cloudinary uploads, and a React single page front end on top.
+
+## What it does
+
+- Register, log in, log out. JWT rides in an httpOnly cookie
+- Create, browse and manage listings
+- Create and manage bookings
+- User profiles with avatar upload
+- Uploads pass through Multer, then land in Cloudinary
+- `isAuth` middleware guards the private routes
+
+About 2,200 lines across 43 files, 3 Mongoose models.
 
 ## Stack
 
-**Backend** — Express · MongoDB (Mongoose) · JWT · bcryptjs · Cloudinary · Multer · cookie-parser
-**Frontend** — React · Vite · React Router · Axios · React Toastify
+**Backend** Express, MongoDB via Mongoose, JWT, bcryptjs, Cloudinary, Multer, cookie-parser
+**Frontend** React, Vite, React Router, Axios, React Toastify
 
-## Features
-
-- **Auth** — register, login, logout; JWT stored in an httpOnly cookie
-- **Listings** — create, browse and manage rental listings
-- **Bookings** — create and manage reservations
-- **Users** — profiles with avatar upload
-- **Image pipeline** — Multer for multipart uploads, Cloudinary for storage and delivery
-- **Route protection** — `isAuth` middleware guards private endpoints
-
-## Structure
+## Layout
 
 ```
 backend/
-  config/         db.js · cloudinary.js · token.js
-  controllers/    auth · booking · listing · user
-  middleware/     isAuth · multer
+  config/         db.js, cloudinary.js, token.js
+  controllers/    auth, booking, listing, user
+  middleware/     isAuth, multer
   models/
-  index.js        entry point
-frontend/         React SPA (Vite)
+  index.js
+frontend/         React SPA
 ```
 
-## Getting started
+## Run it
 
 ### Backend
 
@@ -59,19 +61,19 @@ npm install
 npm run dev
 ```
 
-| Command | Description |
+| Command | What it does |
 |---|---|
 | `npm run dev` | Vite dev server |
 | `npm run build` | Production build |
 | `npm run preview` | Preview the build |
 | `npm run lint` | ESLint |
 
-## Environment variables
+## Environment
 
 | Variable | Purpose |
 |---|---|
-| `MONGODB_URL` | MongoDB connection string |
-| `JWT_SECRET` | Token signing secret |
+| `MONGODB_URL` | Mongo connection string |
+| `JWT_SECRET` | Token signing |
 | `CLOUDINARY_CLOUD_NAME` | Cloudinary cloud |
-| `CLOUDINARY_API_KEY` | Cloudinary API key |
-| `CLOUDINARY_API_SECRET` | Cloudinary API secret |
+| `CLOUDINARY_API_KEY` | Cloudinary key |
+| `CLOUDINARY_API_SECRET` | Cloudinary secret |
